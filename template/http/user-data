@@ -1,0 +1,33 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: fr
+  ssh:
+    install-server: true
+    allow-pw: true
+    disable_root: true
+    ssh_quiet_keygen: true
+    allow_public_ssh_keys: true
+  packages:
+    - qemu-guest-agent
+    - sudo
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+  user-data:
+    package_upgrade: false
+    timezone: Europe/Paris
+    users:
+      - name: clebard
+        groups: [adm, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        # passwd: your-password
+        # - or -
+        ssh_authorized_keys:
+           - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQIfY7zxR2FiBj8J70NAIF8qYKeulZ5h3/nKyUFfGxqoSR0be2CYtlmZDtLl2ZdMSxG5cO9FX05sHVCe7otIY/Vqs3KcvJVQxJL8S8h3SJYgVcx87COSRIlFkY/XKmI0wAuargsY6kHjGyTXh6wUnq36DkQTyQFLYPUZapOXQLENuxALh5BguSIq3kDvs/CjAtiqGehemIAbV0HhkhLrp0s/1LVxlBi6emYe09vcHhGk7MS6yCj4GnJKvQS/Hlfi+kpawpNHJqzWGXnEv9fFbBiebB/YXMJ9P3R1EboPvYzsRxujNwuitsdr7DwF8QN5tKrufbYqNiduwTJv1KWw1IhPdLclHgBAFW58UQvk5KSuf8T/1WBPvGv/YOx36k1bJu5crg5xyy1xoP0i42qkcXNpLimZjOxOkhvW1Wub65bBwftJnpsRkmlM4Lnf9zCj1ahReONJTLlxqWk1uekBXjUqZz/FbDLicoAZjet3zz2BlW3eAW5tbgGBO91BtZd70= nicopc ssh

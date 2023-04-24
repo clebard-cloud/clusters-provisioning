@@ -1,0 +1,27 @@
+pm_url = ""
+pm_api_token_id = ""
+pm_api_token_secret = ""
+pm_node_name = "bomal01"
+pm_tls_insecure = true
+
+template_name = "k3s"
+
+k3s_server_memory = 4096
+k3s_agent_memory = 2048
+
+k3s_server_cpu = 2
+k3s_agent_cpu = 2
+
+ssh_public_key = ""
+
+gateway = "192.168.2.1"
+
+server_ips = [
+    "192.168.2.11/24",
+    "192.168.2.12/24"
+]
+
+agent_ips = [
+    "192.168.2.13/24",
+    "192.168.2.14/24"
+]
